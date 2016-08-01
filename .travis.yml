@@ -1,0 +1,37 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+
+python:
+  - "3.5"
+
+env:
+  - TOXENV=py27-d17
+  - TOXENV=py27-d18
+  - TOXENV=py27-d19
+
+  - TOXENV=py33-d17
+  - TOXENV=py33-d18
+
+  - TOXENV=py34-d17
+  - TOXENV=py34-d18
+  - TOXENV=py34-d19
+
+  - TOXENV=py35-d18
+  - TOXENV=py35-d19
+
+  - TOXENV=pypy-d17
+  - TOXENV=pypy-d18
+  - TOXENV=pypy-d19
+
+before_install:
+  - pip install codecov
+
+install:
+  - pip install tox "coverage<4.0" python-coveralls>=2.5 coveralls>=0.5 codecov
+
+script:
+  - tox -e $TOXENV -- py.test tests -vv --capture=no --cov=log_deletion --cov-report=xml --cov-config=tests/.coveragerc
+
+after_success:
+  - codecov
