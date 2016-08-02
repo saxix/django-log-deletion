@@ -1,6 +1,7 @@
 coverage
 django-dynamic-fixture
 django-webtest>=1.7.5
+djangorestframework
 mock>=1.0.1
 pytest
 pytest-cache

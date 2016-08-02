@@ -13,4 +13,10 @@ logger = logging.getLogger(__name__)
 
 @admin.register(Deletion)
 class DeletionAdmin(ModelAdmin):
-    pass
+    readonly_fields = ('when', 'content_type', 'table_name', 'object_id')
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False

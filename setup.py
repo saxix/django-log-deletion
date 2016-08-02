@@ -23,7 +23,7 @@ def read(*files):
 
 
 tests_requires = read('testing.pip')
-drf_requires = ['djangorestframework']
+drf_requires = ['djangorestframework', 'drf-querystringfilter']
 dev_requires = tests_requires + read('develop.pip')
 install_requires = read('install.any.pip', reqs)
 

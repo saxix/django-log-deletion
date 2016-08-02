@@ -6,6 +6,6 @@ import log_deletion.urls
 
 admin.autodiscover()
 urlpatterns = (
-    url(r'', include(log_deletion.urls)),
+    url(r's/', include(log_deletion.urls)),
     url(r'admin/', include(admin.site.urls)),
 )

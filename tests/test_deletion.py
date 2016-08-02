@@ -23,7 +23,6 @@ def test_deletion_simple():
     record = G(DemoModel)
     id = record.pk
 
-    # monitor(DemoModel)
     with atomic():
         record.delete()
     assert Deletion.objects.filter(object_id=id)
@@ -33,7 +32,6 @@ def test_deletion_simple():
 def test_deletion_multiple():
     records = G(DemoModel, n=10)
     id = records[0].pk
-    # monitor(DemoModel)
 
     with atomic():
         DemoModel.objects.filter(id__gt=id).delete()
@@ -45,7 +43,6 @@ def test_disable_log_deletion():
     record = G(DemoModel)
     id = record.pk
 
-    # monitor(DemoModel)
     with atomic():
         with disable_log_deletion(DemoModel):
             record.delete()
@@ -57,7 +54,6 @@ def test_deletion_rollback():
     record = G(DemoModel)
     id = record.pk
 
-    # monitor(DemoModel)
     try:
         with atomic():
             record.delete()

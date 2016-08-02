@@ -9,8 +9,13 @@ django-log-deletion
     :target: https://travis-ci.org/saxix/django-log-deletion
 
 diango app to log model deletion.
-It allow to expose records deletion via ws to allow systems syncronization,
+It allow to expose records deletion via ws to allow systems syncronization.
 
+Rationale
+---------
+
+Sometime you need to keep some tables that live in two different
+systems "synchronized", so that the "slave" system always reflect rows in the "master"
 
 Documentation
 -------------
@@ -27,9 +32,3 @@ Install django-log-deletion::
 Then use it in a project::
 
     import log_deletion
-
-Features
---------
-
-* TODO
-
